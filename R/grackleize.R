@@ -159,7 +159,7 @@ for(j in 1:MaxTrip){
 '
 
  m1 <- stan( model_code=model_code_1, data=model_dat,refresh=1,chains=1, control = list(adapt_delta = 0.9, max_treedepth = 15))
-M1<<-m1
+
 ############################################################## Plot main results
 # Make caterpillar plot
 
@@ -221,4 +221,6 @@ windows()
  ggplot(df_allx, aes(x=Value)) + geom_density(aes(group=Group3, colour=Group3, fill=Group3), alpha=0.3)   + facet_wrap(Group2~Group,scales="free")+
  labs(y="Regression parameters") + theme(strip.text.x = element_text(size=14,face="bold"),axis.text=element_text(size=12),
         axis.title=element_text(size=14,face="bold")) 
+ 
+ return(m1)
 }
