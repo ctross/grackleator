@@ -8,7 +8,7 @@ grackletrip <- function(m1){
                       
  m1d<-rstan::extract(m1,pars="AlphaDist")
  sample_eff<-apply(m1d$AlphaDist,2,quantile,probs=c(0.05,0.5,0.95))
- df_dist<-data.frame(Trip=c(1:dim(m1a$AlphaAngle)[2]),Group="Step-Size",Group2="Mean",
+ df_dist<-data.frame(Trip=c(1:dim(m1d$AlphaDist)[2]),Group="Step-Size",Group2="Mean",
                       LI=sample_eff[1,],
                       Median=sample_eff[2,],
                       HI=sample_eff[3,])
@@ -17,14 +17,14 @@ grackletrip <- function(m1){
 
   m1a<-rstan::extract(m1,pars="DAngle")
  sample_eff<-apply(exp(m1a$DAngle),2,quantile,probs=c(0.05,0.5,0.95))
- df_angle<-data.frame(Trip=c(1:dim(m1a$AlphaAngle)[2]),Group="Heading Change",Group2="Dispersion",
+ df_angle<-data.frame(Trip=c(1:dim(m1a$DAngle)[2]),Group="Heading Change",Group2="Dispersion",
                       LI=sample_eff[1,],
                       Median=sample_eff[2,],
                       HI=sample_eff[3,])
                       
  m1d<-rstan::extract(m1,pars="SDDist")
  sample_eff<-apply(exp(m1d$SDDist),2,quantile,probs=c(0.05,0.5,0.95))
- df_dist<-data.frame(Trip=c(1:dim(m1a$AlphaAngle)[2]),Group="Step-Size",Group2="Dispersion",
+ df_dist<-data.frame(Trip=c(1:dim(m1d$SDDist)[2]),Group="Step-Size",Group2="Dispersion",
                       LI=sample_eff[1,],
                       Median=sample_eff[2,],
                       HI=sample_eff[3,])
