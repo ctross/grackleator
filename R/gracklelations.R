@@ -1,4 +1,4 @@
-grackleation <- function(GrackBins){
+grackleations <- function(GrackBins){
 model_dat_2=list(
 Trips=dim(GrackBins)[1],
 Bins=dim(GrackBins)[2],
