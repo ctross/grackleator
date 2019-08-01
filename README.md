@@ -47,5 +47,18 @@ m2 <- gracklenomial(GrackBins)
 image(matrix(get_posterior_mean(m2,pars="A"), nrow=15,ncol=15))
 
 # Plot bird-specific parameters
-gracklepars(m)
+grackleations(m2)
+
+# Now create data with temporal correlations
+GrackBins2 <- GrackBins
+A <- get_posterior_mean(m2,pars="A")
+A <- A/sum(A)
+B <- 0.8
+
+for(i in 2:30)
+GrackBins2[i,] <- rmultinom(1,sum(GrackBins2[i-1,]),A*(1-B) + B*(GrackBins2[i-1,]/sum(GrackBins2[i-1,])))
+
+m3 <- gracklenomial(GrackBins2)
+grackleations(m3)
+
 ```
