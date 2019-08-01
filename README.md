@@ -44,7 +44,10 @@ GrackBins<- gracklebinner(z,ab_override=matrix(c(-3000,-3000,3000,3000),nrow=2,n
 m2 <- gracklenomial(GrackBins)
  
 # Plot environmental hotspots
-image(matrix(get_posterior_mean(m2,pars="A"), nrow=15,ncol=15))
+image(matrix(get_posterior_mean(m2,pars="A"), nrow=15,ncol=15)) # Overall
+image(matrix(GrackBins[1,], nrow=15,ncol=15)) # Day 1
+image(matrix(GrackBins[2,], nrow=15,ncol=15)) # Day 2
+image(matrix(GrackBins[10,], nrow=15,ncol=15)) # Day 10
 
 # Plot bird-specific parameters
 grackleations(m2)
@@ -58,7 +61,16 @@ B <- 0.8
 for(i in 2:30)
 GrackBins2[i,] <- rmultinom(1,sum(GrackBins2[i-1,]),A*(1-B) + B*(GrackBins2[i-1,]/sum(GrackBins2[i-1,])))
 
+# Analyze the new data
 m3 <- gracklenomial(GrackBins2)
+
+# Plot environmental hotspots
+image(matrix(get_posterior_mean(m3,pars="A"), nrow=15,ncol=15)) # Overall
+image(matrix(GrackBins2[1,], nrow=15,ncol=15)) # Day 1
+image(matrix(GrackBins2[2,], nrow=15,ncol=15)) # Day 2
+image(matrix(GrackBins2[10,], nrow=15,ncol=15)) # Day 10
+
+# Plot bird-specific parameters
 grackleations(m3)
 
 ```
