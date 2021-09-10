@@ -1,18 +1,21 @@
-gracklebinner <- function(tracks,nbin=c(15,15),ab_override=NULL){
+gracklebinner = function (tracks, nbin = c(15, 15), ab_override = NULL) 
+{
+    Trips <- length(tracks)
 
-Trips <- dim(tracks$X)[2]
-GrackBins <- matrix(NA,nrow=Trips,ncol=nbin[1]*nbin[2])
-bins<-bin2(cbind(c(z$X),c(z$Y)),nbin=nbin)
+    GrackBins <- matrix(NA, nrow = Trips, ncol = nbin[1] * nbin[2])
 
-if(length(dim(ab_override))==0){
-for( i in 1:Trips){
-GrackBins[i,] <- c(bin2(cbind(z$X[,i],z$Y[,i]),nbin=nbin,ab=bins$ab)$nc)
- }
- } else{
-for( i in 1:Trips){
-GrackBins[i,] <- c(bin2(cbind(z$X[,i],z$Y[,i]),nbin=nbin,ab=ab_override)$nc)
- }
- }
+    bins <- bin2(as.matrix(do.call(rbind,tracks)), nbin = nbin)
 
-return(GrackBins)
+    if (length(dim(ab_override)) == 0) {
+        for (i in 1:Trips) {
+            GrackBins[i, ] <- c(bin2(cbind(tracks[[i]]$X, tracks[[i]]$Y), 
+                nbin = nbin, ab = bins$ab)$nc)
+        }
+    } else {
+        for (i in 1:Trips) {
+            GrackBins[i, ] <- c(bin2(cbind(tracks[[i]]$X, tracks[[i]]$Y), 
+                nbin = nbin, ab = ab_override)$nc)
+        }
+    }
+    return(GrackBins)
 }
