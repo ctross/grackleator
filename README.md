@@ -34,7 +34,9 @@ extract_summary_parameters(m1)
 And now habitat selection:
 ```{r}
 # Load library and attach data
-library(grackleator)  
+library(grackleator)
+library(rstan)
+library(cmdstanr)
 
 # Simulate tracks from 1 grackle over 30 trips
 z = grackleate(AlphaDist=3.8, AlphaAngle=0, SDDist=1.5, DAngle=2)
