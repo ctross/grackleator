@@ -1,0 +1,13 @@
+Package: grackleator
+Version: 1.0
+Date: 2019-07-31
+Title: Investigate Grackle Movement
+Author: Cody Ross
+Maintainer: Cody Ross <ctross@ucdavis.edu>
+Depends: MASS, mvtnorm, fields, ggplot2, rethinking, sfsmisc, ash, reshape, maptools, gridExtra, scales, msm, maps, grid, xtable
+Suggests: MASS, mvtnorm, fields, ggplot2, rethinking, sfsmisc, ash, reshape, maptools, gridExtra, scales, msm, maps, grid, xtable
+Description: Simulate and model the movement of birds
+License: GPL 
+URL: https://github.com/Ctross/grackleator
+BugReports: https://github.com/Ctross/grackleator
+RoxygenNote: 6.0.1.9000
