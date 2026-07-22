@@ -1,4 +1,4 @@
-extract_summary_parameters = function(m1){
+extract_movement_parameters = function(m1){
  m1a = rstan::extract(m1,pars="AlphaAngle")
  sample_eff = apply(m1a$AlphaAngle,2,quantile,probs=c(0.05,0.5,0.95))
  df_angle = data.frame(Trip=c(1:dim(m1a$AlphaAngle)[2]),Group="Heading Change",Group2="Mean",
