@@ -4,8 +4,8 @@ Date: 2019-07-31
 Title: Investigate Grackle Movement
 Author: Cody Ross
 Maintainer: Cody Ross <ctross@ucdavis.edu>
-Depends: MASS, mvtnorm, fields, ggplot2,  sfsmisc, ash, reshape, maptools, gridExtra, scales, msm, maps, grid, xtable
-Suggests: MASS, mvtnorm, fields, ggplot2, sfsmisc, ash, reshape, maptools, gridExtra, scales, msm, maps, grid, xtable
+Depends: MASS, mvtnorm, fields, ggplot2,  sfsmisc, ash, reshape, maptools, gridExtra, scales, msm, maps, grid, xtable, brms
+Suggests: MASS, mvtnorm, fields, ggplot2, sfsmisc, ash, reshape, maptools, gridExtra, scales, msm, maps, grid, xtable, brms
 Description: Simulate and model the movement of birds
 License: GPL 
 URL: https://github.com/Ctross/grackleator
