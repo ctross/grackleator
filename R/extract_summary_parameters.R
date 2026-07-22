@@ -1,4 +1,4 @@
-extract_individual_parameters = function(m1){
+extract_summary_parameters = function(m1){
 MuD_M = data.frame(Group="Step-Size", Group2="Mean", Group3="Mean", Value=rstan::extract(m1,pars="MuD_M")$MuD_M) # Mean Step-Size over Days
 DispD_M = data.frame(Group="Step-Size", Group2="Mean", Group3="Dispersion", Value=rstan::extract(m1,pars="DispD_M")$DispD_M) # Dispersion in Mean Step-Size over days
 
