@@ -129,5 +129,6 @@ for(k in 1:Lags){                                                               
 
  return(list(X=Store.X[(Lags+1):length(loc.x),], 
              Y=Store.Y[(Lags+1):length(loc.y),],
-             food_locs = food_locs))
+             food_locs_X = food_locs$X,
+             food_locs_Y = food_locs$Y))
  }
