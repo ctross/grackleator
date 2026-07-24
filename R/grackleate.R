@@ -13,7 +13,7 @@ for(i in 1:N_Patches){
  Y_Locations[[i]] = rnorm(N_PerPatch[i], runif(1,-2500,2500), rpois(1, 350))+100
 }
 
-food_locs = data.frame(X=c(unlist(X_Locations)), Y=c(unlist(X_Locations)))
+food_locs = data.frame(X=c(unlist(X_Locations)), Y=c(unlist(Y_Locations)))
 
 X_Locations_per_step = vector("list",steps)                                       # Location of prey
 Y_Locations_per_step = vector("list",steps)                                       #
